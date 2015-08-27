@@ -1,6 +1,6 @@
 require 'rails'
 require 'concerns/trendable'
-# require 'workers/fade_out_power_worker'
+require 'workers/fade_out_trend_power_worker'
 require 'trendable/trendable'
 require 'trendable/engine'
 require 'trendable/version'

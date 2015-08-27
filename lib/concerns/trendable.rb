@@ -4,6 +4,11 @@ module Trendable
 
     included do
       scope :order_by_trending, -> { order( trending_power: :desc ) }
+
+      def self.has_trendable_concern?
+        true
+      end
+
     end
 
     def boost_trending_power( add_value = 1000 )
