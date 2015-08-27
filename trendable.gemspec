@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.rubygems_version = Trendable::Rails::VERSION
   s.summary = "Organize your models by a trending popularity value"
 
-  s.add_dependency "active_support", ">= 4.1.0"
+  s.add_dependency "activesupport", ">= 4.1.0"
   s.add_dependency "sidekiq"
 end

@@ -1,0 +1,2 @@
+module Trendable
+end
