@@ -7,7 +7,7 @@ class FadeOutTrendPowerWorker
     ActiveRecord::Base.descendants.each do |klass|
       if klass.respond_to?( "has_trendable_concern?".to_sym )
         
-        klass.update_all( "trending_power = trending_power * #{multiplier}")
+        klass.items_to_fade_trending_power.update_all( "trending_power = trending_power * #{multiplier}")
       else
         puts "#{klass.to_s} does not have trendable concern"
       end
