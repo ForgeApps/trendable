@@ -36,6 +36,7 @@ rerun.txt
 pickle-email-*.html
 .DS_Store
 *.swp
+*.gem
 
 # Ignore application configuration
 /config/application.yml
