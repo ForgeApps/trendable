@@ -4,7 +4,7 @@ module Trendable
 
     included do
       scope :order_by_trending, -> { order( trending_power: :desc ) }
-      scope :items_to_fade_trending_power, -> { all }
+      scope :items_to_fade_trending_power, -> { where( "trending_power > 0" ) }
 
       def self.has_trendable_concern?
         true
