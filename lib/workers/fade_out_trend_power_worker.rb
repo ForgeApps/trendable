@@ -7,8 +7,8 @@ class FadeOutTrendPowerWorker
     ActiveRecord::Base.descendants.each do |klass|
       if klass.respond_to?( "has_trendable_concern?".to_sym )
         
-        klass.items_to_fade_trending_power.find_in_batches( batch_size: batch_size ) do |batch|
-          batch.update_all( "trending_power = trending_power * #{multiplier}")
+        klass.items_to_fade_trending_power.select( :id ).find_in_batches( batch_size: batch_size ) do |batch|
+          klass.where( id: batch.collect{ |i| i.id } ).update_all( "trending_power = trending_power * #{multiplier}")
         end
       else
         puts "#{klass.to_s} does not have trendable concern"
