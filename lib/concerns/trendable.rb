@@ -16,7 +16,7 @@ module Trendable
       if dont_touch
         self.update_columns( trending_power: trending_power + add_value )
       else
-        self.update_attributes( trending_power: trending_power + add_value )
+        self.update( trending_power: trending_power + add_value )
       end
     end
 
@@ -24,7 +24,7 @@ module Trendable
       if dont_touch
         self.update_columns( trending_power: trending_power * multiplier )
       else
-        self.update_attributes( trending_power: trending_power * multiplier )
+        self.update( trending_power: trending_power * multiplier )
       end
     end
   end
