@@ -12,12 +12,20 @@ module Trendable
 
     end
 
-    def boost_trending_power!( add_value = 1000 )
-      self.update( trending_power: trending_power + add_value )
+    def boost_trending_power!( add_value = 1000, dont_touch: false )
+      if dont_touch
+        self.update_columns( trending_power: trending_power + add_value )
+      else
+        self.update( trending_power: trending_power + add_value )
+      end
     end
 
-    def fade_out_trending_power!( multiplier = 0.9 )
-      self.update( trending_power: trending_power * multiplier )
+    def fade_out_trending_power!( multiplier = 0.9, dont_touch: false )
+      if dont_touch
+        self.update_columns( trending_power: trending_power * multiplier )
+      else
+        self.update( trending_power: trending_power * multiplier )
+      end
     end
   end
 end
